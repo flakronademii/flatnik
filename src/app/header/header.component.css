@@ -1,0 +1,55 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+ul{
+  display: flex;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.shopicon{
+  margin: 0 auto;
+  display: flex;
+}
+.headeri{
+ background-color: rgb(59, 58, 58);
+ height: 60px;
+ -webkit-background-fill-color:rgb(182, 183, 255);; /* Will override color (regardless of order) */
+ -webkit-text-stroke-width: 1px;
+ -webkit-text-stroke-color: gray;
+}
+.rrajti{
+
+  transform: scale(1);
+
+}
+button{
+  font-size: 20px;
+
+}
+.navigation-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-caption {
+  display: inline-block;
+  padding-left: 6px;
+}
+
+.active{
+  background-color:gray;
+}
+@media only screen and (max-width: 600px) {
+
+}
