@@ -6,7 +6,7 @@ exports.createUser = (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then(hash => {
     const user = new User({
       email: req.body.email,
-      password: hash
+      password: req.body.password
     });
     user
       .save()
@@ -24,22 +24,6 @@ exports.createUser = (req, res, next) => {
   });
 }
 
-exports.deleteUser = (req, res, next) => {
-  User.deleteOne({ _id: req.params.id })
-    .then(result => {
-      console.log(result);
-      if (result.n > 0) {
-        res.status(200).json({ message: "Deletion successful!" });
-      } else {
-        res.status(401).json({ message: "Not authorized!" });
-      }
-    })
-    .catch(error => {
-      res.status(500).json({
-        message: "Deleting posts failed!"
-      });
-    });
-};
 
 exports.userLogin = (req, res, next) => {
   let fetchedUser;
@@ -78,14 +62,3 @@ exports.userLogin = (req, res, next) => {
     });
 
   }
-  exports.getUsers = async (req, res, next) => {
-    let users = await User.find();
-
-    if(users){
-      res.status(200).json({users});
-    } else {
-
-      res.status(400).json({message: "Ik more se ska"})
-    }
-
-   };

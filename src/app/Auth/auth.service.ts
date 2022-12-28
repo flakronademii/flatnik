@@ -46,34 +46,6 @@ export class AuthService {
   }
   getUsers(usersPerPage: number, currentPage: number) {
     return this.http.get(`${BACKEND_URL}users`)
-
-
-    // this.http
-    //   .get<{ message: string; users: any; maxPosts: number }>(
-    //     BACKEND_URL +"/admin"
-    //   )
-    //   .pipe(
-    //     map(userData => {
-    //       return {
-    //         users: userData.users.map((user: { email: any; password: any; userRole: any}) => {
-    //           return {
-    //             email: user.email,
-    //             password: user.password,
-    //             userRole: user.userRole,
-
-    //           };
-    //         }),
-    //         maxPosts: userData.maxPosts
-    //       };
-    //     })
-    //   )
-    //   .subscribe(transformedUserData => {
-    //     this.users = transformedUserData.users;
-    //     this.usersUpdated.next({
-    //       users: [...this.users],
-    //       userCount: transformedUserData.maxPosts
-    //     });
-    //   });
   }
 
   createUser(email: string, password: string,userRole:string) {

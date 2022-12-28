@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ErrorInterceptor } from "./error-interceptor";
+import { ErrorComponent } from "./error/error.component";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CostumersUSERSComponent } from './costumers-users/costumers-users.component';
@@ -9,7 +10,7 @@ import { MagazineUSERSComponent } from './magazine-users/magazine-users.componen
 import { SidenavListComponent } from './header/sidenav-list/sidenav-list.component';
 import { MaterialModule } from './angular-material.module';
 import { HeaderComponent } from './header/header.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,11 +18,16 @@ import { HttpClientModule } from '@angular/common/http';
         AppComponent,
         CostumersUSERSComponent,
         MagazineUSERSComponent,
-       SidenavListComponent,
-       HeaderComponent
+        SidenavListComponent,
+        HeaderComponent,
+        ErrorComponent
     ],
-    providers: [],
+    providers: [
+      {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor , multi: true}
+
+    ],
     bootstrap: [AppComponent],
+    entryComponents: [ErrorComponent],
     imports: [
         BrowserModule,
         HttpClientModule,
